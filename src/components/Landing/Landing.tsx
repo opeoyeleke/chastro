@@ -3,10 +3,13 @@ import { Layout } from "antd";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
 import { LoginOutlined } from "@ant-design/icons";
+import { Row, Col } from "antd";
+
 import Hamburger from "hamburger-react";
 
 import "./Landing.scss";
 import Logo from "./../../assets/logo.svg";
+import Chatting from "./../../assets/chatting.svg";
 
 const { Header, Footer, Content } = Layout;
 
@@ -21,6 +24,7 @@ const Landing: FC = () => {
             <img src={Logo} alt="app-logo" />
             <div className="app-name">chastro</div>
           </div>
+
           <div className="nav-center">
             <ul>
               <li>Features</li>
@@ -29,17 +33,17 @@ const Landing: FC = () => {
               <li>Contact</li>
             </ul>
           </div>
+
           <div className="nav-right">
-            <Button type="primary" className="button">
-              <Link to="/register">Register</Link>
-            </Button>
-            <Button type="primary" className="button" icon={<LoginOutlined />}>
+            <Button type="primary" icon={<LoginOutlined />}>
               <Link to="/login">Log in</Link>
             </Button>
           </div>
         </div>
+
         <div className="mobile-nav">
-          <Hamburger rounded toggled={isOpen} toggle={setOpen} />
+          <Hamburger rounded size={20} toggled={isOpen} toggle={setOpen} />
+
           {isOpen ? (
             <div className="mobile-nav-menu">
               <ul>
@@ -48,14 +52,7 @@ const Landing: FC = () => {
                 <li>About</li>
                 <li>Contact</li>
                 <li>
-                  <Button type="primary" className="button">
-                    <Link to="/register">Register</Link>
-                  </Button>
-                  <Button
-                    type="primary"
-                    className="button"
-                    icon={<LoginOutlined />}
-                  >
+                  <Button type="primary" icon={<LoginOutlined />}>
                     <Link to="/login">Log in</Link>
                   </Button>
                 </li>
@@ -64,7 +61,25 @@ const Landing: FC = () => {
           ) : null}
         </div>
       </Header>
-      <Content className="content">Content</Content>
+
+      <Content className="content">
+        <div className="banner-container">
+          <div className="banner-left">
+            <div className="title">Connecting Users Worldwide</div>
+            <div className="desc">
+              Connect to people no matter who you are or where you are
+            </div>
+
+            <Button type="primary">
+              <Link to="/register">Get Started Now</Link>
+            </Button>
+          </div>
+          <div className="banner-right">
+            <img src={Chatting} alt="text vector" />
+          </div>
+        </div>
+      </Content>
+
       <Footer>Footer</Footer>
     </Layout>
   );
