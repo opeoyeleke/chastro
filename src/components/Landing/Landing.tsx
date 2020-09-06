@@ -3,7 +3,6 @@ import { Layout } from "antd";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
 import { LoginOutlined } from "@ant-design/icons";
-import { Row, Col } from "antd";
 
 import Hamburger from "hamburger-react";
 
@@ -67,11 +66,12 @@ const Landing: FC = () => {
           <div className="banner-left">
             <div className="title">Connecting Users Worldwide</div>
             <div className="desc">
-              Connect to people no matter who you are or where you are
+              Join people around the world and enjoy a comprehensive
+              communication experience{" "}
             </div>
 
             <Button type="primary">
-              <Link to="/register">Get Started Now</Link>
+              <Link to="/register">Get Started</Link>
             </Button>
           </div>
           <div className="banner-right">

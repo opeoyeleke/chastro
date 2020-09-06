@@ -1,0 +1,54 @@
+.page-container {
+  display: flex;
+  width: 100%;
+  .page-left {
+    width: 30vw;
+    background-color: #152779;
+    color: white;
+    height: 100vh;
+    padding: 20vh 30px;
+    a {
+      color: white;
+    }
+    div {
+      margin: 28px 0;
+    }
+    .title {
+      display: flex;
+      .app-name {
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: white;
+        vertical-align: middle;
+      }
+      img {
+        width: 30px;
+        margin-right: 5px;
+      }
+    }
+    .desc {
+      font-size: 1.5rem;
+    }
+    .detail {
+      opacity: 50%;
+    }
+  }
+  .page-right {
+    width: 10vw;
+    display: inline-block;
+    padding: 0 20vw 0 5vw;
+    max-height: 100vh;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 70vw;
+    &.login {
+      padding: 0 20vw 0 20vw;
+    }
+    .already {
+      position: absolute;
+      bottom: 5%;
+      right: 35%;
+      text-align: center;
+    }
+  }
+}
