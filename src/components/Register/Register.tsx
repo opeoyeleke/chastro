@@ -58,7 +58,7 @@ const Register: FC = () => {
           experience
         </div>
         <div className="detail">
-          Connect with people irrespective of who you are or where you are from
+          Connect with people irrespective of where you are from
         </div>
       </div>
 
@@ -66,7 +66,7 @@ const Register: FC = () => {
         <div className="form-container">
           <div
             className="ant-col ant-form-item-control ant-col-xs-20 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
-            style={{ marginBottom: "10px", fontWeight: 500 }}
+            style={{ marginBottom: "10px" }}
           >
             Create an account:
           </div>
@@ -91,7 +91,7 @@ const Register: FC = () => {
                 },
               ]}
             >
-              <Input />
+              <Input placeholder="E-mail" />
             </Form.Item>
             <Form.Item
               name="password"
@@ -104,7 +104,7 @@ const Register: FC = () => {
               ]}
               hasFeedback
             >
-              <Input.Password />
+              <Input.Password placeholder="Password" />
             </Form.Item>
             <Form.Item
               name="confirm"
@@ -128,13 +128,13 @@ const Register: FC = () => {
                 }),
               ]}
             >
-              <Input.Password />
+              <Input.Password placeholder="Confirm Password" />
             </Form.Item>
             <Form.Item
               name="nickname"
               label={
                 <span>
-                  Nickname&nbsp;
+                  Username&nbsp;
                   <Tooltip title="What do you want others to call you?">
                     <QuestionCircleOutlined />
                   </Tooltip>
@@ -148,31 +148,7 @@ const Register: FC = () => {
                 },
               ]}
             >
-              <Input />
-            </Form.Item>
-            <Form.Item
-              label="Captcha"
-              extra="We must make sure that your are a human."
-            >
-              <Row gutter={8}>
-                <Col span={12}>
-                  <Form.Item
-                    name="captcha"
-                    noStyle
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please input the captcha you got!",
-                      },
-                    ]}
-                  >
-                    <Input />
-                  </Form.Item>
-                </Col>
-                <Col span={12}>
-                  <Button>Get captcha</Button>
-                </Col>
-              </Row>
+              <Input placeholder="Username" />
             </Form.Item>
             <Form.Item
               name="agreement"
@@ -205,7 +181,7 @@ const Register: FC = () => {
           </Form>
         </div>
         <div className="already">
-          Already have an account?
+          Already have an account ?
           <span>
             <Link to="/login"> Login</Link>
           </span>

@@ -24,16 +24,15 @@ const Landing: FC = () => {
             <div className="app-name">chastro</div>
           </div>
 
-          <div className="nav-center">
+          <div className="nav-center"></div>
+
+          <div className="nav-right">
             <ul>
               <li>Features</li>
               <li>FAQs</li>
               <li>About</li>
               <li>Contact</li>
             </ul>
-          </div>
-
-          <div className="nav-right">
             <Button type="primary" icon={<LoginOutlined />}>
               <Link to="/login">Log in</Link>
             </Button>

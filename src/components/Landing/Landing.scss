@@ -77,10 +77,11 @@ $background: #f2f6fc;
           }
         }
 
-        .nav-center {
+        .nav-right {
           ul {
             display: inline-flex;
             list-style-type: none;
+            opacity: 0.7;
             li {
               margin-right: 30px;
             }

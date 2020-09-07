@@ -5,8 +5,6 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import Logo from "./../../assets/logo.svg";
 
 const Login: FC = () => {
-  const [form] = Form.useForm();
-
   const onFinish = (values: object) => {
     console.log("Received values of form: ", values);
   };
@@ -25,15 +23,15 @@ const Login: FC = () => {
           experience
         </div>
         <div className="detail">
-          Connect with people irrespective of who you are or where you are from
+          Connect with people irrespective of where you are from
         </div>
       </div>
 
       <div className="page-right login">
         <div className="form-container">
           <div
-            className="ant-col ant-form-item-control ant-col-xs-20 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
-            style={{ marginBottom: "10px", fontWeight: 500 }}
+            className="ant-form-item-control-input-content"
+            style={{ marginBottom: "10px" }}
           >
             Login to your account:
           </div>
@@ -70,10 +68,6 @@ const Login: FC = () => {
               <Form.Item name="remember" valuePropName="checked" noStyle>
                 <Checkbox>Remember me</Checkbox>
               </Form.Item>
-
-              <a className="login-form-forgot" href="">
-                Forgot password
-              </a>
             </Form.Item>
 
             <Form.Item>
@@ -84,11 +78,18 @@ const Login: FC = () => {
               >
                 Log in
               </Button>
+              <Button
+                onClick={() => {
+                  alert("hello");
+                }}
+              >
+                Sign in with Google
+              </Button>
             </Form.Item>
           </Form>
         </div>
         <div className="already">
-          Don't have an account?
+          Don't have an account ?
           <span>
             <Link to="/register"> Register</Link>
           </span>
