@@ -1,6 +1,6 @@
-import React, { useState, FC } from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
-import { Form, Input, Tooltip, Row, Col, Checkbox, Button } from "antd";
+import { Form, Input, Tooltip, Checkbox, Button } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
 
 import "./Register.scss";
