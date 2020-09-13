@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import { Form, Input, Tooltip, Checkbox, Button } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
+import { signInWithGoogle } from "../../firebase/firebase.utils";
 
 import "./Register.scss";
 import Logo from "./../../assets/logo.svg";
@@ -170,13 +171,7 @@ const Register: FC = () => {
                 Register
               </Button>
 
-              <Button
-                onClick={() => {
-                  alert("hello");
-                }}
-              >
-                Sign up with Google
-              </Button>
+              <Button onClick={signInWithGoogle}>Sign up with Google</Button>
             </Form.Item>
           </Form>
         </div>

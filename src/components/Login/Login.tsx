@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import Logo from "./../../assets/logo.svg";
+import { signInWithGoogle } from "../../firebase/firebase.utils";
 
 const Login: FC = () => {
   const onFinish = (values: object) => {
@@ -78,13 +79,7 @@ const Login: FC = () => {
               >
                 Log in
               </Button>
-              <Button
-                onClick={() => {
-                  alert("hello");
-                }}
-              >
-                Sign in with Google
-              </Button>
+              <Button onClick={signInWithGoogle}>Sign in with Google</Button>
             </Form.Item>
           </Form>
         </div>

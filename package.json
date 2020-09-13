@@ -12,6 +12,7 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.5",
     "antd": "^4.6.1",
+    "firebase": "^7.19.1",
     "hamburger-react": "^2.1.1",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
