@@ -24,6 +24,7 @@ const App: FC = () => {
 
   return (
     <div className="App">
+      {console.log(currentUser)}
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route exact path="/login" component={Login} />
