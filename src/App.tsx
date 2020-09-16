@@ -6,6 +6,7 @@ import "./App.css";
 import Landing from "./components/Landing/Landing";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import Dashboard from "./components/Dashboard";
 
 type FirebaseUserState = firebase.User | null;
 
@@ -29,6 +30,7 @@ const App: FC = () => {
         <Route exact path="/" component={Landing} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
+        <Route exact path="/dashboard" component={Dashboard} />
       </Switch>
     </div>
   );

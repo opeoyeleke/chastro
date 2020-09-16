@@ -4,7 +4,7 @@ import { Form, Input, Tooltip, Checkbox, Button } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
 import { signInWithGoogle } from "../../firebase/firebase.utils";
 
-import "./Register.scss";
+import "./register.scss";
 import Logo from "./../../assets/logo.svg";
 
 const formItemLayout = {

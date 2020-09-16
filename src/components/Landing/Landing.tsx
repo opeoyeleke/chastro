@@ -6,7 +6,7 @@ import { LoginOutlined } from "@ant-design/icons";
 
 import Hamburger from "hamburger-react";
 
-import "./Landing.scss";
+import "./landing.scss";
 import Logo from "./../../assets/logo.svg";
 import Chatting from "./../../assets/chatting.svg";
 
@@ -79,7 +79,9 @@ const Landing: FC = () => {
         </div>
       </Content>
 
-      <Footer>Footer</Footer>
+      <Footer>
+        Made with ❤ by <a href="https://github.com/opeoyeleke/">opeoyeleke</a>
+      </Footer>
     </Layout>
   );
 };
