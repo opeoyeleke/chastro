@@ -2,7 +2,11 @@ import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import { Form, Input, Tooltip, Checkbox, Button } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
-import { signInWithGoogle } from "../../firebase/firebase.utils";
+import {
+  signInWithGoogle,
+  // auth,
+  // createUserProfileDocument,
+} from "../../firebase/firebase";
 
 import "./register.scss";
 import Logo from "./../../assets/logo.svg";

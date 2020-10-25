@@ -9,4 +9,34 @@
   .sidebar.main {
     background-color: lightseagreen;
   }
+
+  #components-layout-demo-side .logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+  }
+
+  .site-layout .site-layout-background {
+    background: #fff;
+  }
+
+  .ant-layout-sider {
+    overflow: auto;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+  }
+
+  .ant-layout-header {
+    position: fixed;
+    height: 64px;
+    top: 0;
+    width: 100vw;
+    border-bottom: 15px solid #f0f2f5;
+  }
+
+  .ant-layout-content {
+    margin: 64px 16px;
+    overflow: initial;
+  }
 }

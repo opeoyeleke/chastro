@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import { auth } from "./firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "./firebase/firebase";
 
 import "./App.css";
 import Landing from "./components/Landing/Landing";
@@ -14,14 +14,15 @@ const App: FC = () => {
   let [currentUser, setUser] = useState<FirebaseUserState>(null);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setUser(user);
-      console.log(user);
+    auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const user = await createUserProfileDocument(userAuth);
+        user?.onSnapshot((snapshot) => {
+          setUser(userAuth);
+        });
+      }
     });
-    return () => {
-      unsubscribe();
-    };
-  });
+  }, []);
 
   return (
     <div className="App">

@@ -80,7 +80,7 @@ const Landing: FC = () => {
       </Content>
 
       <Footer>
-        Made with ❤ by <a href="https://github.com/opeoyeleke/">opeoyeleke</a>
+        made with ❤ by <a href="https://github.com/opeoyeleke/">opeoyeleke</a>
       </Footer>
     </Layout>
   );

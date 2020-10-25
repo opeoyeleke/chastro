@@ -35,3 +35,7 @@
 [0907/210938.278:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
 [0907/210938.278:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
 [0907/210938.278:ERROR:exception_snapshot_win.cc(99)] thread ID 9268 not found in process
+[1013/173503.373:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1017/073011.565:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1019/232726.240:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1023/115904.224:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
