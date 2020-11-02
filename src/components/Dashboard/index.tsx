@@ -1,5 +1,6 @@
-import React, { FC, useState } from "react";
-import { Layout, Menu, Breadcrumb } from "antd";
+import React, { FC } from "react";
+import { connect } from "react-redux";
+import { Layout, Menu } from "antd";
 import {
   PieChartOutlined,
   SearchOutlined,
@@ -9,6 +10,8 @@ import {
   MessageOutlined,
 } from "@ant-design/icons";
 import "./dashboard.scss";
+import { RootState } from "./../../redux/root-reducer";
+import { auth } from "./../../firebase/firebase";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -33,13 +36,19 @@ const Dashboard: FC = () => {
           <Menu.Item key="5" icon={<SettingOutlined />}>
             Settings
           </Menu.Item>
-          <Menu.Item key="6" icon={<LogoutOutlined />}>
+          <Menu.Item
+            key="6"
+            icon={<LogoutOutlined />}
+            onClick={() => {
+              auth.signOut();
+            }}
+          >
             Logout
           </Menu.Item>
         </Menu>
       </Sider>
       <Layout className="site-layout" style={{ marginLeft: 200 }}>
-        <Header className="site-layout-background" />
+        <Header className="site-layout-background dashboard" />
         <Content>
           <div
             className="site-layout-background"
@@ -150,4 +159,8 @@ const Dashboard: FC = () => {
   );
 };
 
-export default Dashboard;
+const mapStateToProps = (state: RootState) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(Dashboard);
