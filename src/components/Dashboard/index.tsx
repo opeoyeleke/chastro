@@ -21,9 +21,7 @@ interface DashboardProps {
   currentUser: CurrentUser;
 }
 
-const Dashboard: FC<DashboardProps> = (props) => {
-  const { currentUser } = props;
-
+const Dashboard: FC<DashboardProps> = () => {
   return (
     <Layout>
       <Sider>
