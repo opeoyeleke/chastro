@@ -1,19 +1,36 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { Layout } from "antd";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
-import { LoginOutlined } from "@ant-design/icons";
-
 import Hamburger from "hamburger-react";
+import { connect } from "react-redux";
 
 import "./landing.scss";
 import Logo from "./../../assets/logo.svg";
 import Chatting from "./../../assets/chatting.svg";
+import { CurrentUser } from "./../../redux/user/user.types";
+import { RootState } from "./../../redux/root-reducer";
+import Loading from "./../Loading/Loading";
 
 const { Header, Footer, Content } = Layout;
 
-const Landing: FC = () => {
+interface LandingProps {
+  currentUser: CurrentUser;
+}
+
+const Landing: FC<LandingProps> = ({ currentUser }) => {
   const [isOpen, setOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    }
+  }, [loading]);
+
+  if (loading) return <Loading />;
 
   return (
     <Layout className="layout">
@@ -33,8 +50,12 @@ const Landing: FC = () => {
               <li>About</li>
               <li>Contact</li>
             </ul>
-            <Button type="primary" icon={<LoginOutlined />}>
-              <Link to="/login">Log in</Link>
+            <Button type="primary">
+              {currentUser ? (
+                <Link to="/dashboard">Dashboard</Link>
+              ) : (
+                <Link to="/login">Log in</Link>
+              )}
             </Button>
           </div>
         </div>
@@ -50,8 +71,12 @@ const Landing: FC = () => {
                 <li>About</li>
                 <li>Contact</li>
                 <li>
-                  <Button type="primary" icon={<LoginOutlined />}>
-                    <Link to="/login">Log in</Link>
+                  <Button type="primary">
+                    {currentUser ? (
+                      <Link to="/dashboard">Dashboard</Link>
+                    ) : (
+                      <Link to="/login">Log in</Link>
+                    )}
                   </Button>
                 </li>
               </ul>
@@ -86,4 +111,8 @@ const Landing: FC = () => {
   );
 };
 
-export default Landing;
+const mapStateToProps = (state: RootState) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(Landing);

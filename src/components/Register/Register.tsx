@@ -4,8 +4,8 @@ import { Form, Input, Tooltip, Checkbox, Button } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
 import {
   signInWithGoogle,
-  // auth,
-  // createUserProfileDocument,
+  auth,
+  createUserProfileDocument,
 } from "../../firebase/firebase";
 
 import "./register.scss";
@@ -42,11 +42,29 @@ const tailFormItemLayout = {
   },
 };
 
+interface RegisterValues {
+  aggrement: boolean;
+  confirm: string;
+  email: string;
+  displayName: string;
+  password: string;
+}
+
 const Register: FC = () => {
   const [form] = Form.useForm();
 
-  const onFinish = (values: any) => {
-    console.log("Received values of form: ", values);
+  const onFinish = async (values: RegisterValues) => {
+    try {
+      const { user } = await auth.createUserWithEmailAndPassword(
+        values?.email,
+        values?.password
+      );
+      await createUserProfileDocument(user, {
+        displayName: values?.displayName,
+      });
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   return (
@@ -109,7 +127,7 @@ const Register: FC = () => {
               ]}
               hasFeedback
             >
-              <Input.Password placeholder="Password" />
+              <Input.Password placeholder="Password: minimum 6 characters" />
             </Form.Item>
             <Form.Item
               name="confirm"
@@ -136,7 +154,7 @@ const Register: FC = () => {
               <Input.Password placeholder="Confirm Password" />
             </Form.Item>
             <Form.Item
-              name="nickname"
+              name="displayName"
               label={
                 <span>
                   Username&nbsp;
@@ -148,7 +166,7 @@ const Register: FC = () => {
               rules={[
                 {
                   required: true,
-                  message: "Please input your nickname!",
+                  message: "Please input your username!",
                   whitespace: true,
                 },
               ]}

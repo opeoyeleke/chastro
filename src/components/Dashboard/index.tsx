@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import {
   PieChartOutlined,
@@ -12,10 +13,17 @@ import {
 import "./dashboard.scss";
 import { RootState } from "./../../redux/root-reducer";
 import { auth } from "./../../firebase/firebase";
+import { CurrentUser } from "./../../redux/user/user.types";
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const Dashboard: FC = () => {
+interface DashboardProps {
+  currentUser: CurrentUser;
+}
+
+const Dashboard: FC<DashboardProps> = (props) => {
+  const { currentUser } = props;
+
   return (
     <Layout>
       <Sider>
@@ -43,7 +51,7 @@ const Dashboard: FC = () => {
               auth.signOut();
             }}
           >
-            Logout
+            <Link to="/">Logout</Link>
           </Menu.Item>
         </Menu>
       </Sider>

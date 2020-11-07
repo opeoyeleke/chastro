@@ -3,11 +3,22 @@ import { Link } from "react-router-dom";
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import Logo from "./../../assets/logo.svg";
-import { signInWithGoogle } from "../../firebase/firebase";
+import { signInWithGoogle, auth } from "../../firebase/firebase";
+
+interface LoginValues {
+  remember: boolean;
+  email: string;
+  password: string;
+}
 
 const Login: FC = () => {
-  const onFinish = (values: object) => {
-    console.log("Received values of form: ", values);
+  const onFinish = async (values: LoginValues) => {
+    const { email, password } = values;
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -43,14 +54,12 @@ const Login: FC = () => {
             onFinish={onFinish}
           >
             <Form.Item
-              name="username"
-              rules={[
-                { required: true, message: "Please input your Username!" },
-              ]}
+              name="email"
+              rules={[{ required: true, message: "Please input your email!" }]}
             >
               <Input
                 prefix={<UserOutlined className="site-form-item-icon" />}
-                placeholder="Username"
+                placeholder="E-mail"
               />
             </Form.Item>
             <Form.Item

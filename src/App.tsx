@@ -9,8 +9,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Dashboard from "./components/Dashboard";
 import { setCurrentUser } from "./redux/user/user.actions";
-
-type FirebaseUserState = firebase.User | null;
+import { CurrentUser } from "./redux/user/user.types";
 
 interface AppProps {
   setCurrentUser: Function;
@@ -22,7 +21,7 @@ const App: FC<AppProps> = (props) => {
   useEffect(() => {
     auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
+        const userRef = await createUserProfileDocument(userAuth, {});
         userRef?.onSnapshot((snapshot) => {
           setCurrentUser({
             id: snapshot.id,
@@ -47,7 +46,7 @@ const App: FC<AppProps> = (props) => {
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  setCurrentUser: (user: any) => dispatch(setCurrentUser(user)),
+  setCurrentUser: (user: CurrentUser) => dispatch(setCurrentUser(user)),
 });
 
 export default connect(null, mapDispatchToProps)(App);
