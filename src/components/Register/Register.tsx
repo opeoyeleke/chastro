@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Form, Input, Tooltip, Checkbox, Button } from "antd";
+import { Form, Input, Tooltip, Checkbox, Button, message } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
 import {
   signInWithGoogle,
@@ -10,6 +10,7 @@ import {
 
 import "./register.scss";
 import Logo from "./../../assets/logo.svg";
+import Loading from "./../Loading/Loading";
 
 const formItemLayout = {
   labelCol: {
@@ -52,6 +53,7 @@ interface RegisterValues {
 
 const Register: FC = () => {
   const [form] = Form.useForm();
+  const [loading, setLoading] = useState(true);
 
   const onFinish = async (values: RegisterValues) => {
     try {
@@ -62,10 +64,21 @@ const Register: FC = () => {
       await createUserProfileDocument(user, {
         displayName: values?.displayName,
       });
+      message.success("Registration successfull");
     } catch (error) {
-      alert(error.message);
+      message.warning(error.message);
     }
   };
+
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1500);
+    }
+  }, [loading]);
+
+  if (loading) return <Loading />;
 
   return (
     <div className="page-container">

@@ -26,7 +26,7 @@ const Landing: FC<LandingProps> = ({ currentUser }) => {
     if (loading) {
       setTimeout(() => {
         setLoading(false);
-      }, 2000);
+      }, 1500);
     }
   }, [loading]);
 

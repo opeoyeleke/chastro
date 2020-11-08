@@ -1,9 +1,14 @@
-import React, { FC } from "react";
-import { Link } from "react-router-dom";
-import { Form, Input, Button, Checkbox } from "antd";
+import React, { FC, useEffect, useState } from "react";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+
+import { Form, Input, Button, Checkbox, message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import Logo from "./../../assets/logo.svg";
 import { signInWithGoogle, auth } from "../../firebase/firebase";
+import { CurrentUser } from "./../../redux/user/user.types";
+import { RootState } from "./../../redux/root-reducer";
+import Loading from "./../Loading/Loading";
 
 interface LoginValues {
   remember: boolean;
@@ -11,16 +16,35 @@ interface LoginValues {
   password: string;
 }
 
-const Login: FC = () => {
+interface LoginProps {
+  currentUser: CurrentUser;
+}
+
+const Login: FC<LoginProps> = ({ currentUser }) => {
+  const [loading, setLoading] = useState(true);
+
   const onFinish = async (values: LoginValues) => {
     const { email, password } = values;
     try {
       await auth.signInWithEmailAndPassword(email, password);
     } catch (error) {
-      console.log(error);
+      message.error(error.message);
     }
   };
 
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1500);
+    }
+  }, [loading]);
+
+  if (loading) return <Loading />;
+
+  if (currentUser) {
+    return <Redirect to="/dashboard" />;
+  }
   return (
     <div className="page-container">
       <div className="page-left">
@@ -103,4 +127,8 @@ const Login: FC = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state: RootState) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(Login);
