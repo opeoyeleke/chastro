@@ -1,23 +1,20 @@
 import React, { FC } from "react";
 import { connect } from "react-redux";
-import { Link, NavLink, Switch, Route } from "react-router-dom";
-import { Layout, Menu } from "antd";
-import {
-  PieChartOutlined,
-  SearchOutlined,
-  UserOutlined,
-  LogoutOutlined,
-  SettingOutlined,
-  MessageOutlined,
-} from "@ant-design/icons";
+import { Switch, Route } from "react-router-dom";
+import { Layout } from "antd";
 
 import "./dashboard.scss";
 import { RootState } from "./../../redux/root-reducer";
-import { auth } from "./../../firebase/firebase";
 import { CurrentUser } from "./../../redux/user/user.types";
-import Message from "./Message/Message";
 
-const { Header, Content, Footer, Sider } = Layout;
+import NavBar from "./NavBar/NavBar";
+import HeaderComponent from "./Header/Header";
+import Find from "./Find/Find";
+import Message from "./Message/Message";
+import Friends from "./Friends/Friends";
+import Overview from "./Overview/Overview";
+
+const { Content } = Layout;
 
 interface DashboardProps {
   currentUser: CurrentUser;
@@ -26,45 +23,17 @@ interface DashboardProps {
 const Dashboard: FC<DashboardProps> = () => {
   return (
     <Layout>
-      <Sider>
-        <div className="logo" />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={["3"]}>
-          <Menu.Item key="1" icon={<PieChartOutlined />}>
-            Overview
-          </Menu.Item>
-          <Menu.Item key="2" icon={<SearchOutlined />}>
-            Find
-          </Menu.Item>
-          <Menu.Item key="3" icon={<MessageOutlined />}>
-            <NavLink to="/dashboard/message">Messages</NavLink>
-          </Menu.Item>
-          <Menu.Item key="4" icon={<UserOutlined />}>
-            Friends
-          </Menu.Item>
-          <Menu.Item key="5" icon={<SettingOutlined />}>
-            Settings
-          </Menu.Item>
-          <Menu.Item
-            key="6"
-            icon={<LogoutOutlined />}
-            onClick={() => {
-              auth.signOut();
-            }}
-          >
-            <Link to="/">Logout</Link>
-          </Menu.Item>
-        </Menu>
-      </Sider>
+      <NavBar />
       <Layout className="site-layout" style={{ marginLeft: 200 }}>
-        <Header className="site-layout-background dashboard" />
-        <Content>
+        <HeaderComponent />
+        <Content className="dashboard">
           <Switch>
             <Route exact path={`/dashboard/message`} component={Message} />
+            <Route exact path={`/dashboard/find`} component={Find} />
+            <Route exact path={`/dashboard/friends`} component={Friends} />
+            <Route exact path={`/dashboard/overview`} component={Overview} />
           </Switch>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Ant Design ©2018 Created by Ant UED
-        </Footer>
       </Layout>
     </Layout>
   );

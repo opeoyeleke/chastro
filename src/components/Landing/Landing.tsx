@@ -52,7 +52,7 @@ const Landing: FC<LandingProps> = ({ currentUser }) => {
             </ul>
             <Button type="primary">
               {currentUser ? (
-                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/dashboard/overview">Dashboard</Link>
               ) : (
                 <Link to="/login">Log in</Link>
               )}
@@ -73,7 +73,7 @@ const Landing: FC<LandingProps> = ({ currentUser }) => {
                 <li>
                   <Button type="primary">
                     {currentUser ? (
-                      <Link to="/dashboard">Dashboard</Link>
+                      <Link to="/dashboard/overview">Dashboard</Link>
                     ) : (
                       <Link to="/login">Log in</Link>
                     )}

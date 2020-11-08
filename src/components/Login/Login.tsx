@@ -43,7 +43,7 @@ const Login: FC<LoginProps> = ({ currentUser }) => {
   if (loading) return <Loading />;
 
   if (currentUser) {
-    return <Redirect to="/dashboard" />;
+    return <Redirect to="/dashboard/overview" />;
   }
   return (
     <div className="page-container">

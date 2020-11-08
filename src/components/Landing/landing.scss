@@ -48,12 +48,13 @@ $background: #f2f6fc;
             margin: 20px 5px;
           }
           .title {
-            font-size: 39px;
-            font-weight: 700;
+            font-size: 43px;
+            font-weight: 600;
             color: $sec_color;
           }
           .desc {
             font-size: 18px;
+            opacity: 0.8;
           }
         }
         .banner-right img {
@@ -73,7 +74,7 @@ $background: #f2f6fc;
 
         .nav-left {
           img {
-            margin-bottom: 14px;
+            margin-bottom: 10px;
           }
         }
 
@@ -110,7 +111,9 @@ $background: #f2f6fc;
             color: $sec_color;
           }
           .desc {
+            font-size: 16px;
             color: rgba(20, 22, 23, 0.8);
+            opacity: 0.8;
           }
         }
         .banner-right {
@@ -195,6 +198,11 @@ a {
 .ant-layout-footer {
   background-color: white;
   text-align: center;
+}
+
+.ant-layout-content {
+  margin: 64px 16px;
+  overflow: initial;
 }
 
 .loader-container {

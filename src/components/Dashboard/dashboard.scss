@@ -18,6 +18,8 @@
 
   .site-layout .site-layout-background {
     background: #fff;
+    padding: 24px;
+    text-align: center;
   }
 
   .ant-layout-sider {
@@ -29,14 +31,21 @@
 
   .ant-layout-header.dashboard {
     position: fixed;
-    height: 64px;
+    height: 9vh;
     top: 0;
     width: 100vw;
-    border-bottom: 15px solid #f0f2f5;
+    border-bottom: 2vh solid #f0f2f5;
   }
 
-  .ant-layout-content {
-    margin: 64px 16px;
-    overflow: initial;
+  .ant-layout-content.dashboard {
+    margin: 64px 16px 16px 16px;
+    overflow: scroll;
+    height: 89vh;
+    background-color: white;
+    text-align: center;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }

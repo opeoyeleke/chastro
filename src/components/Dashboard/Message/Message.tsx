@@ -2,10 +2,7 @@ import React, { FC } from "react";
 
 const Message: FC = () => {
   return (
-    <div
-      className="site-layout-background"
-      style={{ padding: 24, textAlign: "center" }}
-    >
+    <div>
       ...
       <br />
       Really
