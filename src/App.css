@@ -1,7 +1,14 @@
 @import "~antd/dist/antd.css";
 
+@font-face {
+  font-family: "Sofia-pro";
+  src: url("./assets/sofiapro-light.otf");
+  src: local("Sofia-pro"), format("opentype");
+}
+
 body {
-  font-family: Helvetica, sans-serif;
-  font-size: 14px;
+  font-family: Sofia-pro, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
   line-height: normal;
 }

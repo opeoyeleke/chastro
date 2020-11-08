@@ -8,7 +8,7 @@ const Loading: FC = () => {
     <div className="loader-container">
       <Loader
         type="Rings"
-        color="#1890ff"
+        color="#017AFF"
         height={100}
         width={100}
         timeout={2000}

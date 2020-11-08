@@ -1,4 +1,4 @@
-$pry_color: #1890ff;
+$pry_color: #017aff;
 $sec_color: #001529;
 $background: #f2f6fc;
 
@@ -48,12 +48,12 @@ $background: #f2f6fc;
             margin: 20px 5px;
           }
           .title {
-            font-size: 43px;
+            font-size: 39px;
             font-weight: 700;
-            color: $pry_color;
+            color: $sec_color;
           }
           .desc {
-            font-size: 17px;
+            font-size: 18px;
           }
         }
         .banner-right img {
@@ -73,7 +73,7 @@ $background: #f2f6fc;
 
         .nav-left {
           img {
-            margin-bottom: 10px;
+            margin-bottom: 14px;
           }
         }
 
@@ -110,7 +110,7 @@ $background: #f2f6fc;
             color: $sec_color;
           }
           .desc {
-            font-size: 16px;
+            color: rgba(20, 22, 23, 0.8);
           }
         }
         .banner-right {
