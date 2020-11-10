@@ -1,13 +1,13 @@
 import React, { FC } from "react";
 import { connect } from "react-redux";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { Layout } from "antd";
 
 import "./dashboard.scss";
 import { RootState } from "./../../redux/root-reducer";
 import { CurrentUser } from "./../../redux/user/user.types";
 
-import NavBar from "./NavBar/NavBar";
+import { NavBarLarge, NavBarSmall } from "./NavBar/NavBar";
 import HeaderComponent from "./Header/Header";
 import Find from "./Find/Find";
 import Message from "./Message/Message";
@@ -20,22 +20,37 @@ interface DashboardProps {
   currentUser: CurrentUser;
 }
 
-const Dashboard: FC<DashboardProps> = () => {
+const Dashboard: FC<DashboardProps> = ({ currentUser }) => {
+  if (!currentUser) {
+    return <Redirect to="/login" />;
+  }
   return (
-    <Layout>
-      <NavBar />
-      <Layout className="site-layout" style={{ marginLeft: 200 }}>
-        <HeaderComponent />
-        <Content className="dashboard">
-          <Switch>
-            <Route exact path={`/dashboard/message`} component={Message} />
-            <Route exact path={`/dashboard/find`} component={Find} />
-            <Route exact path={`/dashboard/friends`} component={Friends} />
-            <Route exact path={`/dashboard/overview`} component={Overview} />
-          </Switch>
-        </Content>
-      </Layout>
-    </Layout>
+    <div>
+      <div className="large-container">
+        <Layout>
+          <NavBarLarge />
+          <Layout className="site-layout" style={{ marginLeft: 200 }}>
+            <HeaderComponent />
+            <Content className="dashboard">
+              <Switch>
+                <Route exact path={`/dashboard/message`} component={Message} />
+                <Route exact path={`/dashboard/find`} component={Find} />
+                <Route exact path={`/dashboard/friends`} component={Friends} />
+                <Route
+                  exact
+                  path={`/dashboard/overview`}
+                  component={Overview}
+                />
+              </Switch>
+            </Content>
+          </Layout>
+        </Layout>
+      </div>
+
+      <div className="small-container">
+        <NavBarSmall />
+      </div>
+    </div>
   );
 };
 
