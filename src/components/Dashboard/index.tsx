@@ -8,7 +8,7 @@ import { RootState } from "./../../redux/root-reducer";
 import { CurrentUser } from "./../../redux/user/user.types";
 
 import { NavBarLarge, NavBarSmall } from "./NavBar/NavBar";
-import HeaderComponent from "./Header/Header";
+import { HeaderLarge, HeaderSmall } from "./Header/Header";
 import Find from "./Find/Find";
 import Message from "./Message/Message";
 import Friends from "./Friends/Friends";
@@ -30,7 +30,7 @@ const Dashboard: FC<DashboardProps> = ({ currentUser }) => {
         <Layout>
           <NavBarLarge />
           <Layout className="site-layout" style={{ marginLeft: 200 }}>
-            <HeaderComponent />
+            <HeaderLarge />
             <Content className="dashboard">
               <Switch>
                 <Route exact path={`/dashboard/message`} component={Message} />
@@ -48,6 +48,15 @@ const Dashboard: FC<DashboardProps> = ({ currentUser }) => {
       </div>
 
       <div className="small-container">
+        <HeaderSmall />
+        <div className="dashboard">
+          <Switch>
+            <Route exact path={`/dashboard/message`} component={Message} />
+            <Route exact path={`/dashboard/find`} component={Find} />
+            <Route exact path={`/dashboard/friends`} component={Friends} />
+            <Route exact path={`/dashboard/overview`} component={Overview} />
+          </Switch>
+        </div>
         <NavBarSmall />
       </div>
     </div>

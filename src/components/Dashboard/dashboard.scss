@@ -3,6 +3,65 @@
     display: none;
   }
 
+  .small-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: white;
+
+    .ant-layout-header.small {
+      background-color: white;
+      padding: 0 20px;
+      border-bottom: 1px solid #4a51572f;
+      z-index: 10;
+      height: 8vh;
+    }
+
+    .dashboard {
+      div {
+        overflow: scroll;
+        max-height: 84vh;
+      }
+    }
+
+    .mobile-nav {
+      position: fixed;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      bottom: 0;
+      border-top: 1px solid #4a51572f;
+      height: 8vh;
+      z-index: 20;
+      color: rgb(105, 102, 102);
+
+      .active {
+        color: #017aff;
+      }
+      .mobile-nav-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        font-size: 10px;
+
+        .anticon svg {
+          height: 18px;
+          width: 18px;
+          margin-right: 0;
+        }
+
+        span {
+          margin-top: 3px;
+        }
+      }
+    }
+  }
+
   //other styles
   #tab-bar.demo {
     display: flex;
