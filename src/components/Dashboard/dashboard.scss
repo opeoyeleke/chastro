@@ -1,4 +1,4 @@
-@media (max-width: 992px,) {
+@media (max-width: 992px) {
   .large-container {
     display: none;
   }
@@ -96,8 +96,6 @@
 
   .site-layout .site-layout-background {
     background: #fff;
-    padding: 24px;
-    text-align: center;
   }
 
   .ant-layout-sider {
@@ -107,10 +105,16 @@
     left: 0;
   }
 
+  .ant-layout-sider-children {
+    padding-top: 49px;
+  }
+
   .ant-layout-header.dashboard {
     position: fixed;
     height: 9vh;
     top: 0;
+    padding: 0 20px;
+    line-height: inherit;
     width: 100vw;
     border-bottom: 2vh solid #f0f2f5;
   }

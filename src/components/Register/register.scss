@@ -35,6 +35,11 @@
       .ant-form-item-required {
         display: none;
       }
+      .already {
+        a {
+          color: #017aff;
+        }
+      }
     }
   }
 }
@@ -91,7 +96,14 @@
         bottom: 5%;
         right: 35%;
         text-align: center;
+        a {
+          color: #017aff;
+        }
       }
     }
   }
+}
+
+.login-form-button {
+  margin-right: 10px;
 }

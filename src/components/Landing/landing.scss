@@ -25,8 +25,8 @@ $background: #f2f6fc;
           background-color: white;
           z-index: 12;
           ul {
-            padding-left: 25px;
-
+            padding-right: 35px;
+            text-align: end;
             li {
               list-style-type: none;
               line-height: 50px;
@@ -54,11 +54,11 @@ $background: #f2f6fc;
           }
           .desc {
             font-size: 18px;
-            opacity: 0.8;
           }
         }
         .banner-right img {
           max-width: 80vw;
+          height: 280px;
         }
       }
     }
@@ -95,7 +95,7 @@ $background: #f2f6fc;
 
     .content {
       position: relative;
-      padding-top: 50px;
+      padding: 50px 70px 0 30px;
       .banner-container {
         display: flex;
         flex-direction: row;
@@ -112,8 +112,6 @@ $background: #f2f6fc;
           }
           .desc {
             font-size: 16px;
-            color: rgba(20, 22, 23, 0.8);
-            opacity: 0.8;
           }
         }
         .banner-right {
@@ -149,7 +147,7 @@ $background: #f2f6fc;
   z-index: 10;
   transform: translateY(0);
   background-color: white;
-  border-bottom: #bfc3c9;
+  border-bottom: 1px solid #dfe2e7;
 }
 .nav-left {
   display: flex;
@@ -179,7 +177,6 @@ a {
 .ant-btn-primary {
   background-color: $pry_color;
   border: $pry_color;
-  margin-right: 10px;
   color: white;
   a {
     color: white;

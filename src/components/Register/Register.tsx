@@ -202,7 +202,11 @@ const Register: FC = () => {
               <Checkbox>I aggree to the terms</Checkbox>
             </Form.Item>
             <Form.Item {...tailFormItemLayout}>
-              <Button type="primary" htmlType="submit">
+              <Button
+                type="primary"
+                htmlType="submit"
+                className="login-form-button"
+              >
                 Register
               </Button>
 

@@ -11,7 +11,7 @@ const Loading: FC = () => {
         color="#017AFF"
         height={100}
         width={100}
-        timeout={2000}
+        timeout={4000}
       />
     </div>
   );

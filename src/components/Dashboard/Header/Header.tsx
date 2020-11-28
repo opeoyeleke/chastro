@@ -4,7 +4,7 @@ import { Layout } from "antd";
 export const HeaderLarge: FC = () => {
   const { Header } = Layout;
 
-  return <Header className="site-layout-background dashboard" />;
+  return <Header className="site-layout-background dashboard">Header</Header>;
 };
 
 export const HeaderSmall: FC = () => {
