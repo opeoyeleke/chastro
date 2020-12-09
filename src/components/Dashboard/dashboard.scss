@@ -12,16 +12,22 @@
 
     .ant-layout-header.small {
       background-color: white;
-      padding: 0 20px;
+      padding: 0 15px;
       border-bottom: 1px solid #4a51572f;
       z-index: 10;
       height: 8vh;
+      align-items: center;
+      line-height: normal;
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
     }
 
     .dashboard {
       div {
         overflow: scroll;
         max-height: 84vh;
+        padding: 8px 6px;
       }
     }
 
@@ -38,7 +44,7 @@
       color: rgb(105, 102, 102);
 
       .active {
-        color: #017aff;
+        color: #185c9b;
       }
       .mobile-nav-item {
         display: flex;
@@ -95,7 +101,7 @@
   }
 
   .site-layout .site-layout-background {
-    background: #fff;
+    background: white;
   }
 
   .ant-layout-sider {
@@ -103,31 +109,74 @@
     height: 100vh;
     position: fixed;
     left: 0;
+    z-index: 3;
+    width: 15vw !important;
+    min-width: 200px !important;
+    max-width: 15vw !important ;
+
+    .ant-menu .ant-menu-item-selected {
+      background-color: #185c9b !important;
+      // border-radius: 20px;
+    }
+
+    // .ant-menu-dark.ant-menu-inline .ant-menu-item,
+    // .ant-menu-dark.ant-menu-inline .ant-menu-submenu-title {
+    //   width: 100%;
+    //   border-radius: 20px;
+    // }
   }
 
-  .ant-layout-sider-children {
-    padding-top: 49px;
-  }
+  // .ant-layout-sider-children {
+  //   padding-top: 49px;
+  // }
 
   .ant-layout-header.dashboard {
     position: fixed;
     height: 9vh;
+    min-height: 57px;
+    align-items: center;
     top: 0;
-    padding: 0 20px;
+    padding: 0 33px;
     line-height: inherit;
-    width: 100vw;
+    width: 85vw;
     border-bottom: 2vh solid #f0f2f5;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+
+    .header-left {
+      font-size: 21px;
+      font-weight: 600;
+    }
+    .header-right {
+      font-size: 26px;
+    }
   }
 
   .ant-layout-content.dashboard {
     margin: 64px 16px 16px 16px;
     overflow: scroll;
     height: 89vh;
+    max-width: 85vw;
     background-color: white;
-    text-align: center;
     scrollbar-width: none;
     &::-webkit-scrollbar {
       display: none;
+    }
+
+    .dashboard-content {
+      padding: 20px;
+
+      .search-bar {
+        padding: 20px 0;
+        text-align: center;
+        padding: 20px 20vw;
+      }
+      .title {
+        font-size: 120%;
+        font-weight: 600;
+        padding-bottom: 25px;
+      }
     }
   }
 }

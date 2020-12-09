@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Layout } from "antd";
@@ -21,44 +21,65 @@ interface DashboardProps {
 }
 
 const Dashboard: FC<DashboardProps> = ({ currentUser }) => {
+  const [isDesktop, setDesktop] = useState(window.innerWidth > 992);
+
+  const updateMedia = () => {
+    setDesktop(window.innerWidth > 992);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  });
+
   if (!currentUser) {
     return <Redirect to="/login" />;
   }
   return (
     <div>
-      <div className="large-container">
-        <Layout>
-          <NavBarLarge />
-          <Layout className="site-layout" style={{ marginLeft: 200 }}>
-            <HeaderLarge />
-            <Content className="dashboard">
-              <Switch>
-                <Route exact path={`/dashboard/message`} component={Message} />
-                <Route exact path={`/dashboard/find`} component={Find} />
-                <Route exact path={`/dashboard/friends`} component={Friends} />
-                <Route
-                  exact
-                  path={`/dashboard/overview`}
-                  component={Overview}
-                />
-              </Switch>
-            </Content>
+      {isDesktop ? (
+        <div className="large-container">
+          <Layout>
+            <NavBarLarge />
+            <Layout className="site-layout" style={{ marginLeft: 200 }}>
+              <HeaderLarge displayName={currentUser?.displayName} />
+              <Content className="dashboard">
+                <Switch>
+                  <Route
+                    exact
+                    path={`/dashboard/message`}
+                    component={Message}
+                  />
+                  <Route exact path={`/dashboard/find`} component={Find} />
+                  <Route
+                    exact
+                    path={`/dashboard/friends`}
+                    component={Friends}
+                  />
+                  <Route
+                    exact
+                    path={`/dashboard/overview`}
+                    component={Overview}
+                  />
+                </Switch>
+              </Content>
+            </Layout>
           </Layout>
-        </Layout>
-      </div>
-
-      <div className="small-container">
-        <HeaderSmall />
-        <div className="dashboard">
-          <Switch>
-            <Route exact path={`/dashboard/message`} component={Message} />
-            <Route exact path={`/dashboard/find`} component={Find} />
-            <Route exact path={`/dashboard/friends`} component={Friends} />
-            <Route exact path={`/dashboard/overview`} component={Overview} />
-          </Switch>
         </div>
-        <NavBarSmall />
-      </div>
+      ) : (
+        <div className="small-container">
+          <HeaderSmall displayName={currentUser?.displayName} />
+          <div className="dashboard">
+            <Switch>
+              <Route exact path={`/dashboard/message`} component={Message} />
+              <Route exact path={`/dashboard/find`} component={Find} />
+              <Route exact path={`/dashboard/friends`} component={Friends} />
+              <Route exact path={`/dashboard/overview`} component={Overview} />
+            </Switch>
+          </div>
+          <NavBarSmall />
+        </div>
+      )}
     </div>
   );
 };

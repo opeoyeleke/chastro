@@ -19,7 +19,7 @@ export const NavBarLarge: FC = () => {
       <div className="logo" />
       <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
         <Menu.Item key="1" icon={<PieChartOutlined />}>
-          <NavLink to="/dashboard">Overview</NavLink>
+          <NavLink to="/dashboard/overview">Overview</NavLink>
         </Menu.Item>
         <Menu.Item key="2" icon={<SearchOutlined />}>
           <NavLink to="/dashboard/find">Find</NavLink>
