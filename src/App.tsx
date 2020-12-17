@@ -4,12 +4,12 @@ import { auth, createUserProfileDocument } from "./firebase/firebase";
 import { connect } from "react-redux";
 
 import "./App.css";
-import Landing from "./components/Landing/Landing";
-import Login from "./components/Login/Login";
-import Register from "./components/Register/Register";
-import Dashboard from "./components/Dashboard";
-import { setCurrentUser } from "./redux/user/user.actions";
-import { CurrentUser } from "./redux/user/user.types";
+import Landing from "components/Landing/Landing";
+import Login from "components/Login/Login";
+import Register from "components/Register/Register";
+import Dashboard from "components/Dashboard";
+import { setCurrentUser } from "redux/user/user.actions";
+import { CurrentUser } from "redux/user/user.types";
 
 interface AppProps {
   setCurrentUser: Function;

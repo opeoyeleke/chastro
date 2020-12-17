@@ -90,7 +90,7 @@ const Find: FC = () => {
       </div>
 
       <div className="search-result">
-        <div className="title">Results</div>
+        <div className="title">Result</div>
         <Table columns={columns} dataSource={data} />
       </div>
     </div>

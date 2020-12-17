@@ -12,7 +12,7 @@ const Overview: FC<OverviewProps> = ({ currentUser }) => {
   return (
     <div>
       {" "}
-      Hello {currentUser?.displayName.split(" ").slice(0, -1).join(" ")}!
+      Hello {currentUser?.displayName?.split(" ").slice(0, -1).join(" ")}!
     </div>
   );
 };

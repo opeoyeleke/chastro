@@ -6,11 +6,11 @@ import Hamburger from "hamburger-react";
 import { connect } from "react-redux";
 
 import "./landing.scss";
-import Logo from "./../../assets/logo.svg";
-import Chatting from "./../../assets/chatting.svg";
-import { CurrentUser } from "./../../redux/user/user.types";
-import { RootState } from "./../../redux/root-reducer";
-import Loading from "./../Loading/Loading";
+import Logo from "assets/logo.svg";
+import { ReactComponent as Chatting } from "assets/chatting.svg";
+import { CurrentUser } from "redux/user/user.types";
+import { RootState } from "redux/root-reducer";
+import Loading from "components/Loading/Loading";
 
 const { Header, Footer, Content } = Layout;
 
@@ -26,7 +26,7 @@ const Landing: FC<LandingProps> = ({ currentUser }) => {
     if (loading) {
       setTimeout(() => {
         setLoading(false);
-      }, 3000);
+      }, 1500);
     }
   }, [loading]);
 
@@ -99,7 +99,7 @@ const Landing: FC<LandingProps> = ({ currentUser }) => {
             </Button>
           </div>
           <div className="banner-right">
-            <img src={Chatting} alt="text vector" />
+            <Chatting className="landing-image" />
           </div>
         </div>
       </Content>
