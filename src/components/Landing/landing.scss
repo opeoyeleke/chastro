@@ -97,6 +97,12 @@ $background: #f2f6fc;
             list-style-type: none;
             li {
               margin-right: 30px;
+              a {
+                color: $pry_color;
+                &:hover {
+                  opacity: 0.8;
+                }
+              }
             }
           }
         }
@@ -108,10 +114,12 @@ $background: #f2f6fc;
 
     .content {
       position: relative;
-      padding: 0 80px;
       .banner-container {
         display: flex;
         flex-direction: row;
+        min-width: 830px;
+        width: 88%;
+        margin: 0 auto;
         .banner-left {
           width: 37vw;
           margin: 70px 20px;
@@ -140,8 +148,8 @@ $background: #f2f6fc;
           text-align: end;
           .landing-image {
             height: auto;
-            max-width: 35vw;
-            width: auto;
+            width: 80%;
+            min-width: 400px;
           }
         }
       }

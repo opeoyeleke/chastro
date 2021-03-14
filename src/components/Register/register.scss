@@ -31,14 +31,28 @@ $sec_color: #001632;
     }
     .page-right {
       padding: 30px;
+      .form-container {
+        max-width: 450px;
+        margin: 0 auto;
+      }
+      .already {
+        margin: 0 auto;
+        max-width: 450px;
+        a {
+          color: #017aff;
+        }
+      }
+
       .ant-form-item-required,
       .ant-form-item-label {
         display: none;
       }
-      .already {
-        a {
-          color: #017aff;
-        }
+      .ant-col-sm-offset-8 {
+        margin-left: unset;
+      }
+      .ant-col-sm-13,
+      .ant-col-sm-16 {
+        max-width: unset;
       }
     }
   }
@@ -49,11 +63,12 @@ $sec_color: #001632;
     display: flex;
     width: 100%;
     .page-left {
-      width: 30vw;
+      width: 30%;
       background-color: #16161d;
       color: white;
+      padding: 150px 30px;
+      min-width: 300px;
       height: 100vh;
-      padding: 20vh 30px;
       a {
         color: inherit;
       }
@@ -78,22 +93,31 @@ $sec_color: #001632;
     }
     .page-right {
       display: inline-block;
-      padding: 0 20vw 0 5vw;
-      max-height: 100vh;
-      margin-top: auto;
-      margin-bottom: auto;
-      width: 70vw;
-      .form-container .register {
-        min-width: 600px;
+      padding: 0 20% 0 2%;
+      margin-top: 170px;
+      width: 60%;
+      max-height: 1000px;
+      min-width: 450px;
+      .form-container {
+        min-width: 400px;
+        &.register {
+          min-width: 500px;
+        }
       }
+
       &.login {
-        padding: 0 26vw 0 17vw;
+        padding: 0 30% 0 10%;
+        margin-top: 200px;
       }
       .already {
-        position: absolute;
-        bottom: 5%;
-        right: 35%;
-        text-align: center;
+        position: relative;
+        margin-top: 130px;
+        margin-left: 180px;
+        min-width: 270px;
+        &.login {
+          margin-left: unset;
+          margin-top: 200px;
+        }
         a {
           color: #017aff;
         }
@@ -101,10 +125,32 @@ $sec_color: #001632;
       .ant-form-item-required {
         color: $pry_color;
       }
+      .ant-col-sm-13 {
+        max-width: unset;
+      }
     }
   }
 }
 
 .login-form-button {
   margin-right: 5px;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  border-color: $pry_color;
+  background-color: $pry_color;
+}
+
+.ant-checkbox-wrapper:hover .ant-checkbox-inner,
+.ant-checkbox:hover .ant-checkbox-inner,
+.ant-checkbox-input:focus + .ant-checkbox-inner {
+  border-color: $pry_color;
+}
+
+.ant-checkbox-checked::after {
+  border: 1px solid $pry_color;
+}
+
+.ant-checkbox-wrapper {
+  color: $pry_color;
 }

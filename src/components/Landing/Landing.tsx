@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { Layout } from "antd";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Button } from "antd";
 import Hamburger from "hamburger-react";
 import { connect } from "react-redux";
@@ -31,16 +31,15 @@ const Landing: FC<LandingProps> = ({ currentUser }) => {
 
           <div className="nav-right">
             <ul>
-              <li>Features</li>
-              <li>FAQs</li>
-              <li>About</li>
-              <li>Contact</li>
+              <li>
+                <NavLink to="/register">register</NavLink>
+              </li>
             </ul>
             <Button type="primary">
               {currentUser ? (
-                <Link to="/dashboard/overview">Dashboard</Link>
+                <NavLink to="/dashboard/overview">Dashboard</NavLink>
               ) : (
-                <Link to="/login">Log in</Link>
+                <NavLink to="/login">Log in</NavLink>
               )}
             </Button>
           </div>
@@ -59,9 +58,9 @@ const Landing: FC<LandingProps> = ({ currentUser }) => {
                 <li>
                   <Button type="primary">
                     {currentUser ? (
-                      <Link to="/dashboard/overview">Dashboard</Link>
+                      <NavLink to="/dashboard/overview">Dashboard</NavLink>
                     ) : (
-                      <Link to="/login">Log in</Link>
+                      <NavLink to="/login">Log in</NavLink>
                     )}
                   </Button>
                 </li>
@@ -81,10 +80,10 @@ const Landing: FC<LandingProps> = ({ currentUser }) => {
             </div>
 
             <Button type="primary">
-              <Link to="/register">Get Started</Link>
+              <NavLink to="/register">Get Started</NavLink>
             </Button>
             <Button type="ghost">
-              <Link to="/login">Log in</Link>
+              <NavLink to="/login">Log in</NavLink>
             </Button>
           </div>
           <div className="banner-right">

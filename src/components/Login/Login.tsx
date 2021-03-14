@@ -106,7 +106,7 @@ const Login: FC<LoginProps> = ({ currentUser, history }) => {
             </Form.Item>
           </Form>
         </div>
-        <div className="already">
+        <div className="already login">
           Don't have an account ?
           <span>
             <Link to="/register"> Register</Link>
