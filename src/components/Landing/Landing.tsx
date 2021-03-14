@@ -6,7 +6,6 @@ import Hamburger from "hamburger-react";
 import { connect } from "react-redux";
 
 import "./landing.scss";
-import Logo from "assets/logo.svg";
 import { ReactComponent as Chatting } from "assets/chatting.svg";
 import { CurrentUser } from "redux/user/user.types";
 import { RootState } from "redux/root-reducer";
@@ -37,7 +36,6 @@ const Landing: FC<LandingProps> = ({ currentUser }) => {
       <Header className="header">
         <div className="nav-large">
           <div className="nav-left">
-            <img src={Logo} alt="app-logo" />
             <div className="app-name">chastro</div>
           </div>
 
@@ -96,6 +94,9 @@ const Landing: FC<LandingProps> = ({ currentUser }) => {
 
             <Button type="primary">
               <Link to="/register">Get Started</Link>
+            </Button>
+            <Button type="ghost">
+              <Link to="/login">Log in</Link>
             </Button>
           </div>
           <div className="banner-right">

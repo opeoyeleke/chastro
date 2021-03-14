@@ -1,8 +1,8 @@
-$pry_color: #185c9b;
-$sec_color: #001529;
+$pry_color: #42425d;
+$sec_color: #001632;
 $background: #f2f6fc;
 
-@media (max-width: 992px,) {
+@media (max-width: 800px,) {
   .layout {
     .header {
       padding: 0 20px 0 20px;
@@ -22,6 +22,7 @@ $background: #f2f6fc;
           top: 64px;
           left: 0px;
           width: 100%;
+          height: calc(100vh - 64px);
           background-color: white;
           z-index: 12;
           ul {
@@ -37,7 +38,7 @@ $background: #f2f6fc;
     }
     .content {
       position: relative;
-      // padding: 80px 3vw;
+      padding: 70px 2vw 20px 2vw;
       .banner-container {
         display: flex;
         flex-direction: column;
@@ -48,12 +49,18 @@ $background: #f2f6fc;
             margin: 20px 5px;
           }
           .title {
-            font-size: 43px;
-            font-weight: 600;
+            font-size: 40px;
+            font-weight: 900;
+            line-height: 1.1;
             color: $sec_color;
+            text-transform: uppercase;
           }
           .desc {
             font-size: 18px;
+          }
+          .ant-btn-primary {
+            background-color: #e61f5c;
+            margin-right: 5px;
           }
         }
         .landing-image {
@@ -63,11 +70,17 @@ $background: #f2f6fc;
       }
     }
   }
+  .ant-layout-header {
+    color: unset;
+    line-height: 64px;
+  }
 }
 
-@media (min-width: 993px) {
+@media (min-width: 800px) {
   .layout {
     .header {
+      padding: 0 8%;
+      position: sticky;
       .nav-large {
         display: flex;
         justify-content: space-between;
@@ -95,23 +108,30 @@ $background: #f2f6fc;
 
     .content {
       position: relative;
-      padding: 30px 80px;
+      padding: 0 80px;
       .banner-container {
         display: flex;
         flex-direction: row;
         .banner-left {
           width: 37vw;
-          margin: 100px 50px;
+          margin: 70px 20px;
           div {
             margin: 30px 5px;
           }
           .title {
-            font-size: 50px;
-            font-weight: 600;
+            font-size: 45px;
+            font-weight: 900;
+            line-height: 1.2;
             color: $sec_color;
+            text-transform: uppercase;
           }
           .desc {
             font-size: 16px;
+            line-height: 1.5;
+          }
+          .ant-btn-primary {
+            background-color: #e61f5c;
+            margin-right: 10px;
           }
         }
         .banner-right {
@@ -127,13 +147,18 @@ $background: #f2f6fc;
       }
     }
   }
+  .ant-layout-header {
+    color: unset;
+    line-height: 90px;
+    height: 90px;
+  }
 }
 
 @media (min-width: 1500px) {
   .layout {
-    .header {
-      padding: 0 100px;
-    }
+    // .header {
+    //   padding: 0 100px;
+    // }
     .content {
       padding: 50px 70px;
     }
@@ -146,16 +171,15 @@ $background: #f2f6fc;
   width: 100%;
   z-index: 10;
   transform: translateY(0);
-  background-color: white;
-  border-bottom: 1px solid #dfe2e7;
+  background-color: rgb(248, 248, 251);
 }
 .nav-left {
   display: flex;
 
   .app-name {
-    font-weight: 700;
-    font-size: 1.4rem;
-    color: $sec_color;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: $pry_color;
   }
 
   img {
@@ -166,7 +190,7 @@ $background: #f2f6fc;
 
 a {
   &:active {
-    opacity: 40%;
+    opacity: 0.4;
   }
 }
 
@@ -176,6 +200,7 @@ a {
 
 .ant-btn-primary {
   background-color: $pry_color;
+  background: $pry_color;
   border: $pry_color;
   color: white;
   a {
@@ -186,7 +211,9 @@ a {
     color: white;
   }
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     background-color: $pry_color;
     border: $pry_color;
   }
@@ -195,10 +222,10 @@ a {
 .ant-layout-footer {
   background-color: white;
   text-align: center;
+  color: $pry_color;
 }
 
 .ant-layout-content {
-  margin: 64px 16px;
   overflow: initial;
 }
 
@@ -207,4 +234,26 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.ant-btn {
+  padding: 10px 30px;
+  height: unset;
+  border-radius: 200px;
+  margin-top: 3px;
+}
+
+.ant-layout {
+  background-color: unset;
+}
+
+.ant-btn-ghost {
+  color: $pry_color;
+  background-color: white;
+  border-color: $pry_color;
+  &:hover {
+    border-color: $pry_color;
+    color: white;
+    background-color: $pry_color;
+  }
 }

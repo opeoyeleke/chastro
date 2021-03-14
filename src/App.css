@@ -8,12 +8,18 @@ html::-webkit-scrollbar {
   display: none;
 } */
 
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap");
+
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 15px;
   line-height: normal;
+  color: #42425d;
+  max-width: 1500px;
+  margin: 0 auto;
+  font-weight: 600;
 }
-
+/* 
 a {
   color: inherit;
-}
+} */

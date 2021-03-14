@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import { Form, Input, Tooltip, Checkbox, Button, message } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
@@ -9,8 +9,6 @@ import {
 } from "../../firebase/firebase";
 
 import "./register.scss";
-import Logo from "./../../assets/logo.svg";
-import Loading from "./../Loading/Loading";
 
 const formItemLayout = {
   labelCol: {
@@ -53,7 +51,6 @@ interface RegisterValues {
 
 const Register: FC = () => {
   const [form] = Form.useForm();
-  const [loading, setLoading] = useState(true);
 
   const onFinish = async (values: RegisterValues) => {
     try {
@@ -70,21 +67,10 @@ const Register: FC = () => {
     }
   };
 
-  useEffect(() => {
-    if (loading) {
-      setTimeout(() => {
-        setLoading(false);
-      }, 1500);
-    }
-  }, [loading]);
-
-  if (loading) return <Loading />;
-
   return (
     <div className="page-container">
       <div className="page-left">
         <div className="title">
-          <img src={Logo} alt="app-logo" />
           <div className="app-name white">
             <Link to="/">chastro</Link>
           </div>
@@ -210,7 +196,9 @@ const Register: FC = () => {
                 Register
               </Button>
 
-              <Button onClick={signInWithGoogle}>Sign up with Google</Button>
+              <Button type="ghost" onClick={signInWithGoogle}>
+                Sign up with Google
+              </Button>
             </Form.Item>
           </Form>
         </div>

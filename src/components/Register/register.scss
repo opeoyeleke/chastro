@@ -1,12 +1,15 @@
-@media (max-width: 992px,) {
+$pry_color: #42425d;
+$sec_color: #001632;
+
+@media (max-width: 800px,) {
   .page-container {
     display: block;
     .page-left {
       padding: 10px 30px;
-      background-color: #001529;
+      background-color: #16161d;
       color: white;
       a {
-        color: white;
+        color: inherit;
       }
       div {
         margin: 10px 0;
@@ -17,12 +20,8 @@
         .app-name {
           font-weight: 700;
           font-size: 1.2rem;
-          color: white;
+          color: #e61f5c;
           vertical-align: middle;
-        }
-        img {
-          width: 30px;
-          margin-right: 5px;
         }
       }
       .desc,
@@ -32,7 +31,8 @@
     }
     .page-right {
       padding: 30px;
-      .ant-form-item-required {
+      .ant-form-item-required,
+      .ant-form-item-label {
         display: none;
       }
       .already {
@@ -44,18 +44,18 @@
   }
 }
 
-@media (min-width: 993px) {
+@media (min-width: 800px) {
   .page-container {
     display: flex;
     width: 100%;
     .page-left {
       width: 30vw;
-      background-color: #001529;
+      background-color: #16161d;
       color: white;
       height: 100vh;
       padding: 20vh 30px;
       a {
-        color: white;
+        color: inherit;
       }
       div {
         margin: 28px 0;
@@ -65,29 +65,27 @@
         .app-name {
           font-weight: 700;
           font-size: 1.2rem;
-          color: white;
+          color: #e61f5c;
           vertical-align: middle;
-        }
-        img {
-          width: 30px;
-          margin-right: 5px;
         }
       }
       .desc {
         font-size: 1.5rem;
       }
       .detail {
-        opacity: 50%;
+        opacity: 0.6;
       }
     }
     .page-right {
-      width: 10vw;
       display: inline-block;
       padding: 0 20vw 0 5vw;
       max-height: 100vh;
       margin-top: auto;
       margin-bottom: auto;
       width: 70vw;
+      .form-container {
+        min-width: 600px;
+      }
       &.login {
         padding: 0 26vw 0 17vw;
       }
@@ -100,10 +98,13 @@
           color: #017aff;
         }
       }
+      .ant-form-item-required {
+        color: $pry_color;
+      }
     }
   }
 }
 
 .login-form-button {
-  margin-right: 10px;
+  margin-right: 5px;
 }

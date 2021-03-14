@@ -1,14 +1,13 @@
-import React, { FC, useEffect, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import React, { FC } from "react";
+import { Link, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { Form, Input, Button, Checkbox, message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import Logo from "./../../assets/logo.svg";
+
 import { signInWithGoogle, auth } from "../../firebase/firebase";
 import { CurrentUser } from "./../../redux/user/user.types";
 import { RootState } from "./../../redux/root-reducer";
-import Loading from "./../Loading/Loading";
 
 interface LoginValues {
   remember: boolean;
@@ -18,29 +17,19 @@ interface LoginValues {
 
 interface LoginProps {
   currentUser: CurrentUser;
+  history: any;
 }
 
-const Login: FC<LoginProps> = ({ currentUser }) => {
-  const [loading, setLoading] = useState(true);
-
+const Login: FC<LoginProps> = ({ currentUser, history }) => {
   const onFinish = async (values: LoginValues) => {
     const { email, password } = values;
     try {
       await auth.signInWithEmailAndPassword(email, password);
+      history.push("/dashboard/overview");
     } catch (error) {
       message.error(error.message);
     }
   };
-
-  useEffect(() => {
-    if (loading) {
-      setTimeout(() => {
-        setLoading(false);
-      }, 3000);
-    }
-  }, [loading]);
-
-  if (loading) return <Loading />;
 
   if (currentUser) {
     return <Redirect to="/dashboard/overview" />;
@@ -49,7 +38,6 @@ const Login: FC<LoginProps> = ({ currentUser }) => {
     <div className="page-container">
       <div className="page-left">
         <div className="title">
-          <img src={Logo} alt="app-logo" />
           <div className="app-name white">
             <Link to="/">chastro</Link>
           </div>
@@ -112,7 +100,9 @@ const Login: FC<LoginProps> = ({ currentUser }) => {
               >
                 Log in
               </Button>
-              <Button onClick={signInWithGoogle}>Sign in with Google</Button>
+              <Button type="ghost" onClick={signInWithGoogle}>
+                Sign in with Google
+              </Button>
             </Form.Item>
           </Form>
         </div>
@@ -131,4 +121,4 @@ const mapStateToProps = (state: RootState) => ({
   currentUser: state.user.currentUser,
 });
 
-export default connect(mapStateToProps)(Login);
+export default withRouter(connect(mapStateToProps)(Login));
