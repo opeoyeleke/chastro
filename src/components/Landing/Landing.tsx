@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useState } from "react";
 import { Layout } from "antd";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
@@ -9,7 +9,6 @@ import "./landing.scss";
 import { ReactComponent as Chatting } from "assets/chatting.svg";
 import { CurrentUser } from "redux/user/user.types";
 import { RootState } from "redux/root-reducer";
-import Loading from "components/Loading/Loading";
 
 const { Header, Footer, Content } = Layout;
 
@@ -19,17 +18,6 @@ interface LandingProps {
 
 const Landing: FC<LandingProps> = ({ currentUser }) => {
   const [isOpen, setOpen] = useState(false);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (loading) {
-      setTimeout(() => {
-        setLoading(false);
-      }, 1500);
-    }
-  }, [loading]);
-
-  if (loading) return <Loading />;
 
   return (
     <Layout className="layout">

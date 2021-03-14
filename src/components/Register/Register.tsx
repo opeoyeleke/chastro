@@ -85,7 +85,7 @@ const Register: FC = () => {
       </div>
 
       <div className="page-right">
-        <div className="form-container">
+        <div className="form-container register">
           <div
             className="ant-col ant-form-item-control ant-col-xs-20 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
             style={{ marginBottom: "10px" }}
