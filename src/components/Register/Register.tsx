@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Form, Input, Tooltip, Checkbox, Button, message } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
 import {
@@ -7,6 +7,9 @@ import {
   auth,
   createUserProfileDocument,
 } from "../../firebase/firebase";
+import { useSelector } from "react-redux";
+import { CurrentUser } from "./../../redux/user/user.types";
+import { RootState } from "./../../redux/root-reducer";
 
 import "./register.scss";
 
@@ -51,6 +54,9 @@ interface RegisterValues {
 
 const Register: FC = () => {
   const [form] = Form.useForm();
+  const currentUser: CurrentUser = useSelector(
+    (state: RootState) => state.user.currentUser
+  );
 
   const onFinish = async (values: RegisterValues) => {
     try {
@@ -66,6 +72,10 @@ const Register: FC = () => {
       message.warning(error.message);
     }
   };
+
+  if (currentUser) {
+    return <Redirect to="/dashboard/overview" />;
+  }
 
   return (
     <div className="page-container">

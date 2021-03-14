@@ -32,8 +32,22 @@ const Landing: FC<LandingProps> = ({ currentUser }) => {
           <div className="nav-right">
             <ul>
               <li>
-                <NavLink to="/register">register</NavLink>
+                <NavLink to="#">features</NavLink>
               </li>
+              <li>
+                <NavLink to="#">faqs</NavLink>
+              </li>
+              <li>
+                <NavLink to="#">about</NavLink>
+              </li>
+              <li>
+                <NavLink to="#">contact</NavLink>
+              </li>
+              {currentUser ? null : (
+                <li>
+                  <NavLink to="/register">register</NavLink>
+                </li>
+              )}
             </ul>
             <Button type="primary">
               {currentUser ? (

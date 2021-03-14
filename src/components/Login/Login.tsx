@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Link, Redirect, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { Form, Input, Button, Checkbox, message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
@@ -16,11 +16,14 @@ interface LoginValues {
 }
 
 interface LoginProps {
-  currentUser: CurrentUser;
   history: any;
 }
 
-const Login: FC<LoginProps> = ({ currentUser, history }) => {
+const Login: FC<LoginProps> = ({ history }) => {
+  const currentUser: CurrentUser = useSelector(
+    (state: RootState) => state.user.currentUser
+  );
+
   const onFinish = async (values: LoginValues) => {
     const { email, password } = values;
     try {
@@ -117,8 +120,4 @@ const Login: FC<LoginProps> = ({ currentUser, history }) => {
   );
 };
 
-const mapStateToProps = (state: RootState) => ({
-  currentUser: state.user.currentUser,
-});
-
-export default withRouter(connect(mapStateToProps)(Login));
+export default withRouter(Login);
