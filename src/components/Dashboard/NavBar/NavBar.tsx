@@ -1,6 +1,8 @@
 import React, { FC } from "react";
 import { Layout, Menu } from "antd";
 import { Link, NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import {
   PieChartOutlined,
   SearchOutlined,
@@ -13,10 +15,13 @@ import { auth } from "./../../../firebase/firebase";
 
 export const NavBarLarge: FC = () => {
   const { Sider } = Layout;
+  const dispatch = useDispatch();
 
   return (
     <Sider>
-      <div className="logo" />
+      <div className="logo">
+        <Link to="/">Chastro</Link>
+      </div>
       <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
         <Menu.Item key="1" icon={<PieChartOutlined />}>
           <NavLink to="/dashboard/overview">Overview</NavLink>
@@ -38,9 +43,14 @@ export const NavBarLarge: FC = () => {
           icon={<LogoutOutlined />}
           onClick={() => {
             auth.signOut();
+            dispatch({ type: "DESTROY_SESSION" });
+            localStorage.clear();
+            setTimeout(function () {
+              window.location.href = "/";
+            }, 1000);
           }}
         >
-          <Link to="/">Logout</Link>
+          Logout
         </Menu.Item>
       </Menu>
     </Sider>

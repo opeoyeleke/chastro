@@ -68,7 +68,7 @@ $sec_color: #001632;
       color: white;
       padding: 150px 30px;
       min-width: 300px;
-      height: 100vh;
+      min-height: 100vh;
       a {
         color: inherit;
       }
@@ -106,8 +106,8 @@ $sec_color: #001632;
       }
 
       &.login {
-        padding: 0 30% 0 10%;
-        margin-top: 200px;
+        padding: 0 30% 0 15%;
+        margin-top: 210px;
       }
       .already {
         position: relative;

@@ -129,6 +129,21 @@ $sec_color: #001632;
         background: #16161d;
       }
 
+      .logo {
+        font-weight: 900;
+        font-size: 1.5rem;
+        color: #e61f5c;
+        margin: 10px 0 10px 22px;
+        &:hover {
+          cursor: pointer;
+        }
+        &:active {
+          opacity: 0.7;
+        }
+        a {
+          color: unset;
+        }
+      }
       // .ant-menu-dark.ant-menu-inline .ant-menu-item,
       // .ant-menu-dark.ant-menu-inline .ant-menu-submenu-title {
       //   width: 100%;

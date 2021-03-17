@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import { Layout } from "antd";
 
 import "./dashboard.scss";
@@ -18,9 +18,10 @@ const { Content } = Layout;
 
 interface DashboardProps {
   currentUser: CurrentUser;
+  history: any;
 }
 
-const Dashboard: FC<DashboardProps> = ({ currentUser }) => {
+const Dashboard: FC<DashboardProps> = ({ currentUser, history }) => {
   const [isDesktop, setDesktop] = useState(window.innerWidth > 992);
 
   const updateMedia = () => {
@@ -28,13 +29,15 @@ const Dashboard: FC<DashboardProps> = ({ currentUser }) => {
   };
 
   useEffect(() => {
+    if (!currentUser) {
+      history.push("/login");
+    }
+
     window.addEventListener("resize", updateMedia);
     return () => window.removeEventListener("resize", updateMedia);
-  });
+    //eslint-disable-next-line
+  }, []);
 
-  if (!currentUser) {
-    return <Redirect to="/login" />;
-  }
   return (
     <div>
       {isDesktop ? (
@@ -88,4 +91,4 @@ const mapStateToProps = (state: RootState) => ({
   currentUser: state.user.currentUser,
 });
 
-export default connect(mapStateToProps)(Dashboard);
+export default withRouter(connect(mapStateToProps)(Dashboard));
