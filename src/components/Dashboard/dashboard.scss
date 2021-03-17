@@ -1,3 +1,6 @@
+$pry_color: #42425d;
+$sec_color: #001632;
+
 @media (max-width: 992px) {
   .large-container {
     display: none;
@@ -50,7 +53,9 @@
       height: 8vh;
       z-index: 20;
       color: rgb(105, 102, 102);
-
+      a {
+        color: unset;
+      }
       .active {
         color: #185c9b;
       }
@@ -89,7 +94,7 @@
   }
 }
 
-@media (min-width: 993px,) {
+@media (min-width: 992px,) {
   .small-container {
     display: none;
   }
@@ -112,12 +117,16 @@
       overflow: auto;
       height: 100vh;
       position: fixed;
+      background: #16161d;
       left: 0;
       z-index: 3;
 
       .ant-menu .ant-menu-item-selected {
-        background-color: #185c9b !important;
+        background-color: $pry_color !important;
         // border-radius: 20px;
+      }
+      .ant-menu.ant-menu-dark {
+        background: #16161d;
       }
 
       // .ant-menu-dark.ant-menu-inline .ant-menu-item,

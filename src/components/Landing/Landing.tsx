@@ -3,7 +3,7 @@ import { Layout } from "antd";
 import { NavLink } from "react-router-dom";
 import { Button } from "antd";
 import Hamburger from "hamburger-react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 import "./landing.scss";
 import { ReactComponent as Chatting } from "assets/chatting.svg";
@@ -16,8 +16,11 @@ interface LandingProps {
   currentUser: CurrentUser;
 }
 
-const Landing: FC<LandingProps> = ({ currentUser }) => {
+const Landing: FC<LandingProps> = () => {
   const [isOpen, setOpen] = useState(false);
+  const currentUser: CurrentUser = useSelector(
+    (state: RootState) => state.user.currentUser
+  );
 
   return (
     <Layout className="layout">
@@ -113,8 +116,4 @@ const Landing: FC<LandingProps> = ({ currentUser }) => {
   );
 };
 
-const mapStateToProps = (state: RootState) => ({
-  currentUser: state.user.currentUser,
-});
-
-export default connect(mapStateToProps)(Landing);
+export default Landing;
